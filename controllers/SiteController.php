@@ -22,17 +22,12 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'about'],
+                'only' => ['logout'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['about'],
-                        'allow' => true,
-                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -152,4 +147,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
 }
