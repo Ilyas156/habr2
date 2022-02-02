@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use Yii;
 use app\models\article\Articles;
 use app\models\article\ArticlesSearch;
 use yii\helpers\ArrayHelper;
@@ -30,14 +31,15 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Articles();
+        $categories = ArrayHelper::map(Category::find()->all(), 'category_id', 'category_name');
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post()) && $model->createArticle()) {
                 return $this->redirect(['view', 'article_id' => $model->article_id]);
             }
         }
-
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 
@@ -51,6 +53,7 @@ class ArticleController extends Controller
     public function actionUpdate($article_id)
     {
         $model = $this->findArticle($article_id);
+        $categories = ArrayHelper::map(Category::find()->all(), 'category_id', 'category_name');
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'article_id' => $model->article_id]);
@@ -58,6 +61,7 @@ class ArticleController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 

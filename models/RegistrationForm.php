@@ -62,7 +62,7 @@ class RegistrationForm extends Model
             $user->setPassword($this->password);
             $user->create();
             $auth = Yii::$app->authManager;
-            $userRole = $auth->getRole('user');
+            $userRole = $auth->getRole('admin');
             $auth->assign($userRole, $user->getId());
 
             return $user;

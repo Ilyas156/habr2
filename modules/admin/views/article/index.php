@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'title',
             'description',
-            'content',
             [
                     'attribute' => 'category_id',
                     'label' => 'Category',
@@ -39,6 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     {
                         return $data->category->category_name;
                     },
+            ],
+            [
+                'attribute' => 'user_id',
+                'label' => 'Author',
+                'value' => function($data)
+                {
+                    return $data->author->username;
+                },
             ],
             [
                 'class' => ActionColumn::className(),

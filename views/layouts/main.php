@@ -42,7 +42,7 @@ AppAsset::register($this);
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+            ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
@@ -53,6 +53,9 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             ),
+            Yii::$app->user->can('admin') ?
+                ['label' => 'AdminPanel', 'url' => ['/admin']] : ['label' => '']
+
         ],
 
     ]);
@@ -71,10 +74,7 @@ AppAsset::register($this);
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
+
 </footer>
 
 <?php $this->endBody() ?>

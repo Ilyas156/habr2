@@ -17,6 +17,7 @@ class Category extends ActiveRecord
     {
         return [
             [['category_name'], 'required'],
+            [['category_name'], 'unique'],
         ];
     }
 

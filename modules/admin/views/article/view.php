@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'description',
             'content',
-            ['label' => 'category', 'value' => $articles->category->category_name,]
+            ['label' => 'Category', 'value' => $articles->category->category_name,]
         ],
     ]) ?>
 

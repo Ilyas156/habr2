@@ -6,21 +6,10 @@ $this->title = 'Habr2';
 ?>
 <div class="site-index">
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
+    <h1 align="center">Главная страница сайта</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
+    <h5 align="center">Здесь должна будет быть лента статей, сортировка по категориям, поиск,
+        и возможно что-то еще<hr>
+        <img src="https://avatars.mds.yandex.net/get-zen_doc/1925593/pub_5fd725705a2c8e1f2c4dd033_5fd727db9480ec78dc35c7d7/scale_1200"
+             alt="хышник" height="400" width="600" ></h5>
 </div>

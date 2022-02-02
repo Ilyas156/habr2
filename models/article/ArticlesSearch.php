@@ -12,7 +12,7 @@ class ArticlesSearch extends Articles
     public function rules()
     {
         return [
-            [['title', 'description', 'content', 'category_id'], 'safe']
+            [['title', 'description', 'content', 'category_id', 'user_id'], 'safe']
         ];
     }
 
@@ -42,7 +42,8 @@ class ArticlesSearch extends Articles
 
         $query->andFilterWhere(['ilike', 'title', $this->title])
             ->andFilterWhere(['ilike', 'description', $this->description])
-            ->andFilterWhere([ 'category_id' => $this->category_id]);
+            ->andFilterWhere([ 'category_id' => $this->category_id])
+            ->andFilterWhere([ 'user_id' => $this->user_id]);
 
         return $dataProvider;
     }
