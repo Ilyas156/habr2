@@ -2,8 +2,9 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\article\Category;
-use app\models\article\CategorySearch;
+use app\models\article\ArticleCategories;
+use app\models\category\Category;
+use app\models\category\CategorySearch;
 use yii\web\Controller;
 
 
@@ -20,7 +21,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function actionCreate()
+    public function actionCreate() // create new category
     {
         $model = new Category();
 
@@ -35,14 +36,18 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function actionDelete($category_id)
+    public function actionDelete($category_id) // delete category
     {
-        $this->findCategory($category_id)->delete();
+        $articleCategory = new ArticleCategories();
+        $articleCategory->deleteArticleCategory($category_id); // delete this category for the articles
+
+        $category = new Category();
+        $category->deleteCategory($category_id);
 
         return $this->redirect(['index']);
     }
 
-    public function actionUpdate($category_id)
+    public function actionUpdate($category_id) // update category
     {
         $model = $this->findCategory($category_id);
 
@@ -55,7 +60,9 @@ class CategoryController extends Controller
         ]);
     }
 
-    protected function findCategory($category_id) {
-        return Category::findOne(['category_id' => $category_id]);
+    protected function findCategory($category_id)
+    {
+        $category = new Category();
+        return $category->getCategory($category_id);
     }
 }

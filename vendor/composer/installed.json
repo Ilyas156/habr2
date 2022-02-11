@@ -222,17 +222,17 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "4.1.28",
-            "version_normalized": "4.1.28.0",
+            "version": "4.1.29",
+            "version_normalized": "4.1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "e9bc22a3819f9d356068c0e372193ebcc9b06014"
+                "reference": "f8dec8f2bf5347cc596aaf141753f4fb2504c17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/e9bc22a3819f9d356068c0e372193ebcc9b06014",
-                "reference": "e9bc22a3819f9d356068c0e372193ebcc9b06014",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f8dec8f2bf5347cc596aaf141753f4fb2504c17c",
+                "reference": "f8dec8f2bf5347cc596aaf141753f4fb2504c17c",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +271,7 @@
                 "stecman/symfony-console-completion": "For BASH autocompletion",
                 "symfony/phpunit-bridge": "For phpunit-bridge support"
             },
-            "time": "2022-01-05T16:41:25+00:00",
+            "time": "2022-01-29T16:56:03+00:00",
             "bin": [
                 "codecept"
             ],
@@ -311,7 +311,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/4.1.28"
+                "source": "https://github.com/Codeception/Codeception/tree/4.1.29"
             },
             "funding": [
                 {
@@ -719,27 +719,27 @@
         },
         {
             "name": "codeception/stub",
-            "version": "4.0.1",
-            "version_normalized": "4.0.1.0",
+            "version": "4.0.2",
+            "version_normalized": "4.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Stub.git",
-                "reference": "ce0a9e418c775ca8b737d50c2b4ac1132f3990d8"
+                "reference": "18a148dacd293fc7b044042f5aa63a82b08bff5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Stub/zipball/ce0a9e418c775ca8b737d50c2b4ac1132f3990d8",
-                "reference": "ce0a9e418c775ca8b737d50c2b4ac1132f3990d8",
+                "url": "https://api.github.com/repos/Codeception/Stub/zipball/18a148dacd293fc7b044042f5aa63a82b08bff5d",
+                "reference": "18a148dacd293fc7b044042f5aa63a82b08bff5d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 | ^8.0",
-                "phpunit/phpunit": "^8.4 | ^9.0"
+                "phpunit/phpunit": "^8.4 | ^9.0 | ^10.0 | 10.0.x-dev"
             },
             "require-dev": {
                 "consolidation/robo": "^3.0"
             },
-            "time": "2022-01-08T09:35:36+00:00",
+            "time": "2022-01-31T19:25:15+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -754,7 +754,7 @@
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
             "support": {
                 "issues": "https://github.com/Codeception/Stub/issues",
-                "source": "https://github.com/Codeception/Stub/tree/4.0.1"
+                "source": "https://github.com/Codeception/Stub/tree/4.0.2"
             },
             "install-path": "../codeception/stub"
         },
@@ -1084,17 +1084,17 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.17.0",
-            "version_normalized": "1.17.0.0",
+            "version": "v1.19.0",
+            "version_normalized": "1.19.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669"
+                "reference": "d7f08a622b3346766325488aa32ddc93ccdecc75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/b85e9d44eae8c52cca7aa0939483611f7232b669",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/d7f08a622b3346766325488aa32ddc93ccdecc75",
+                "reference": "d7f08a622b3346766325488aa32ddc93ccdecc75",
                 "shasum": ""
             },
             "require": {
@@ -1107,20 +1107,22 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4.1",
+                "doctrine/persistence": "^1.3 || ^2.0",
                 "ext-intl": "*",
                 "symfony/phpunit-bridge": "^4.4 || ^5.2"
             },
             "suggest": {
+                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
                 "ext-curl": "Required by Faker\\Provider\\Image to download images.",
                 "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
                 "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
                 "ext-mbstring": "Required for multibyte Unicode string functionality."
             },
-            "time": "2021-12-05T17:14:47+00:00",
+            "time": "2022-02-02T17:38:57+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "v1.17-dev"
+                    "dev-main": "v1.19-dev"
                 }
             },
             "installation-source": "dist",
@@ -1146,7 +1148,7 @@
             ],
             "support": {
                 "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.17.0"
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.19.0"
             },
             "install-path": "../fakerphp/faker"
         },
@@ -1269,6 +1271,132 @@
             "install-path": "../guzzlehttp/psr7"
         },
         {
+            "name": "kartik-v/yii2-krajee-base",
+            "version": "v3.0.2",
+            "version_normalized": "3.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+                "reference": "23234fce6abc4b6f3f9ba1c7f66f56fbebcde139"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/23234fce6abc4b6f3f9ba1c7f66f56fbebcde139",
+                "reference": "23234fce6abc4b6f3f9ba1c7f66f56fbebcde139",
+                "shasum": ""
+            },
+            "suggest": {
+                "yiisoft/yii2-bootstrap4": "for Krajee extensions to work with Bootstrap 4.x version",
+                "yiisoft/yii2-bootstrap5": "for Krajee extensions to work with Bootstrap 5.x version"
+            },
+            "time": "2022-01-10T03:59:20+00:00",
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\base\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+            "keywords": [
+                "base",
+                "extension",
+                "foundation",
+                "krajee",
+                "widget",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/kartik-v/yii2-krajee-base/issues",
+                "source": "https://github.com/kartik-v/yii2-krajee-base/tree/v3.0.2"
+            },
+            "install-path": "../kartik-v/yii2-krajee-base"
+        },
+        {
+            "name": "kartik-v/yii2-widget-select2",
+            "version": "v2.2.2",
+            "version_normalized": "2.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "5b3c91df7908193981033cb7ca52e83303197753"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/5b3c91df7908193981033cb7ca52e83303197753",
+                "reference": "5b3c91df7908193981033cb7ca52e83303197753",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=3.0",
+                "select2/select2": ">=4.0"
+            },
+            "time": "2021-09-02T14:24:31+00:00",
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\select2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/kartik-v/yii2-widget-select2/issues",
+                "source": "https://github.com/kartik-v/yii2-widget-select2/tree/v2.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/yii2-widget-select2",
+                    "type": "open_collective"
+                }
+            ],
+            "install-path": "../kartik-v/yii2-widget-select2"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.10.2",
             "version_normalized": "1.10.2.0",
@@ -1343,17 +1471,17 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.6.2",
-            "version_normalized": "3.6.2.0",
+            "version": "3.6.3",
+            "version_normalized": "3.6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6"
+                "reference": "3d81e4309d2a927abbe66df935f4bb60082805ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/06e2ebd25f2869e54a306dda991f7db58066f7f6",
-                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6",
+                "url": "https://api.github.com/repos/opis/closure/zipball/3d81e4309d2a927abbe66df935f4bb60082805ad",
+                "reference": "3d81e4309d2a927abbe66df935f4bb60082805ad",
                 "shasum": ""
             },
             "require": {
@@ -1363,7 +1491,7 @@
                 "jeremeamia/superclosure": "^2.0",
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
             },
-            "time": "2021-04-09T13:42:10+00:00",
+            "time": "2022-01-27T09:35:39+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1405,7 +1533,7 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/3.6.2"
+                "source": "https://github.com/opis/closure/tree/3.6.3"
             },
             "install-path": "../opis/closure"
         },
@@ -2176,17 +2304,17 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.22",
-            "version_normalized": "8.5.22.0",
+            "version": "8.5.23",
+            "version_normalized": "8.5.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ddd05b9d844260353895a3b950a9258126c11503"
+                "reference": "efb20ff3623b9d09bf190a68fdfe574538a8d496"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ddd05b9d844260353895a3b950a9258126c11503",
-                "reference": "ddd05b9d844260353895a3b950a9258126c11503",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/efb20ff3623b9d09bf190a68fdfe574538a8d496",
+                "reference": "efb20ff3623b9d09bf190a68fdfe574538a8d496",
                 "shasum": ""
             },
             "require": {
@@ -2224,7 +2352,7 @@
                 "ext-xdebug": "*",
                 "phpunit/php-invoker": "^2.0.0"
             },
-            "time": "2021-12-25T06:58:09+00:00",
+            "time": "2022-01-21T05:50:34+00:00",
             "bin": [
                 "phpunit"
             ],
@@ -2260,7 +2388,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.22"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.23"
             },
             "funding": [
                 {
@@ -3310,6 +3438,51 @@
             "install-path": "../sebastian/version"
         },
         {
+            "name": "select2/select2",
+            "version": "4.0.13",
+            "version_normalized": "4.0.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2.git",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2/zipball/45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "shasum": ""
+            },
+            "time": "2020-01-28T05:01:22+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "dist/js/select2.js"
+                    ],
+                    "styles": [
+                        "dist/css/select2.css"
+                    ],
+                    "files": [
+                        "dist/js/select2.js",
+                        "dist/js/i18n/*.js",
+                        "dist/css/select2.css"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Select2 is a jQuery based replacement for select boxes.",
+            "homepage": "https://select2.org/",
+            "support": {
+                "issues": "https://github.com/select2/select2/issues",
+                "source": "https://github.com/select2/select2/tree/4.0.13"
+            },
+            "install-path": "../select2/select2"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.3.0",
             "version_normalized": "6.3.0.0",
@@ -3462,17 +3635,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.2",
-            "version_normalized": "5.4.2.0",
+            "version": "v5.4.3",
+            "version_normalized": "5.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a2c6b7ced2eb7799a35375fb9022519282b5405e"
+                "reference": "a2a86ec353d825c75856c6fd14fac416a7bdb6b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a2c6b7ced2eb7799a35375fb9022519282b5405e",
-                "reference": "a2c6b7ced2eb7799a35375fb9022519282b5405e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/a2a86ec353d825c75856c6fd14fac416a7bdb6b8",
+                "reference": "a2a86ec353d825c75856c6fd14fac416a7bdb6b8",
                 "shasum": ""
             },
             "require": {
@@ -3510,7 +3683,7 @@
                 "symfony/lock": "",
                 "symfony/process": ""
             },
-            "time": "2021-12-20T16:11:12+00:00",
+            "time": "2022-01-26T16:28:35+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3544,7 +3717,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.2"
+                "source": "https://github.com/symfony/console/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3564,24 +3737,24 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.4.2",
-            "version_normalized": "5.4.2.0",
+            "version": "v5.4.3",
+            "version_normalized": "5.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "cfcbee910e159df402603502fe387e8b677c22fd"
+                "reference": "b0a190285cd95cb019237851205b8140ef6e368e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/cfcbee910e159df402603502fe387e8b677c22fd",
-                "reference": "cfcbee910e159df402603502fe387e8b677c22fd",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b0a190285cd95cb019237851205b8140ef6e368e",
+                "reference": "b0a190285cd95cb019237851205b8140ef6e368e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.16"
             },
-            "time": "2021-12-16T21:58:21+00:00",
+            "time": "2022-01-02T09:53:40+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3613,7 +3786,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v5.4.2"
+                "source": "https://github.com/symfony/css-selector/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3703,17 +3876,17 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.4.36",
-            "version_normalized": "4.4.36.0",
+            "version": "v4.4.37",
+            "version_normalized": "4.4.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "42de12bee3b5e594977209bcdf58ec4fef8dde39"
+                "reference": "60d36408a3a48500bcc6e30d9f831e51d04d7fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/42de12bee3b5e594977209bcdf58ec4fef8dde39",
-                "reference": "42de12bee3b5e594977209bcdf58ec4fef8dde39",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/60d36408a3a48500bcc6e30d9f831e51d04d7fa4",
+                "reference": "60d36408a3a48500bcc6e30d9f831e51d04d7fa4",
                 "shasum": ""
             },
             "require": {
@@ -3732,7 +3905,7 @@
             "suggest": {
                 "symfony/css-selector": ""
             },
-            "time": "2021-12-28T14:48:02+00:00",
+            "time": "2022-01-02T09:41:36+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3760,7 +3933,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v4.4.36"
+                "source": "https://github.com/symfony/dom-crawler/tree/v4.4.37"
             },
             "funding": [
                 {
@@ -3780,17 +3953,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v5.4.0",
-            "version_normalized": "5.4.0.0",
+            "version": "v5.4.3",
+            "version_normalized": "5.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "27d39ae126352b9fa3be5e196ccf4617897be3eb"
+                "reference": "dec8a9f58d20df252b9cd89f1c6c1530f747685d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/27d39ae126352b9fa3be5e196ccf4617897be3eb",
-                "reference": "27d39ae126352b9fa3be5e196ccf4617897be3eb",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/dec8a9f58d20df252b9cd89f1c6c1530f747685d",
+                "reference": "dec8a9f58d20df252b9cd89f1c6c1530f747685d",
                 "shasum": ""
             },
             "require": {
@@ -3820,7 +3993,7 @@
                 "symfony/dependency-injection": "",
                 "symfony/http-kernel": ""
             },
-            "time": "2021-11-23T10:19:22+00:00",
+            "time": "2022-01-02T09:53:40+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3848,7 +4021,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.0"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3950,17 +4123,17 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.2",
-            "version_normalized": "5.4.2.0",
+            "version": "v5.4.3",
+            "version_normalized": "5.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e77046c252be48c48a40816187ed527703c8f76c"
+                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e77046c252be48c48a40816187ed527703c8f76c",
-                "reference": "e77046c252be48c48a40816187ed527703c8f76c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/231313534dded84c7ecaa79d14bc5da4ccb69b7d",
+                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d",
                 "shasum": ""
             },
             "require": {
@@ -3968,7 +4141,7 @@
                 "symfony/deprecation-contracts": "^2.1|^3",
                 "symfony/polyfill-php80": "^1.16"
             },
-            "time": "2021-12-15T11:06:13+00:00",
+            "time": "2022-01-26T16:34:36+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3996,7 +4169,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.2"
+                "source": "https://github.com/symfony/finder/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -4866,17 +5039,17 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.0.2",
-            "version_normalized": "6.0.2.0",
+            "version": "v6.0.3",
+            "version_normalized": "6.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "bae261d0c3ac38a1f802b4dfed42094296100631"
+                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/bae261d0c3ac38a1f802b4dfed42094296100631",
-                "reference": "bae261d0c3ac38a1f802b4dfed42094296100631",
+                "url": "https://api.github.com/repos/symfony/string/zipball/522144f0c4c004c80d56fa47e40e17028e2eefc2",
+                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2",
                 "shasum": ""
             },
             "require": {
@@ -4895,7 +5068,7 @@
                 "symfony/translation-contracts": "^2.0|^3.0",
                 "symfony/var-exporter": "^5.4|^6.0"
             },
-            "time": "2021-12-16T22:13:01+00:00",
+            "time": "2022-01-02T09:55:41+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4934,7 +5107,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.0.2"
+                "source": "https://github.com/symfony/string/tree/v6.0.3"
             },
             "funding": [
                 {
@@ -4954,17 +5127,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.2",
-            "version_normalized": "5.4.2.0",
+            "version": "v5.4.3",
+            "version_normalized": "5.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "b9eb163846a61bb32dfc147f7859e274fab38b58"
+                "reference": "e80f87d2c9495966768310fc531b487ce64237a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/b9eb163846a61bb32dfc147f7859e274fab38b58",
-                "reference": "b9eb163846a61bb32dfc147f7859e274fab38b58",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e80f87d2c9495966768310fc531b487ce64237a2",
+                "reference": "e80f87d2c9495966768310fc531b487ce64237a2",
                 "shasum": ""
             },
             "require": {
@@ -4981,7 +5154,7 @@
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
             },
-            "time": "2021-12-16T21:58:21+00:00",
+            "time": "2022-01-26T16:32:32+00:00",
             "bin": [
                 "Resources/bin/yaml-lint"
             ],
@@ -5012,7 +5185,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.2"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -5082,6 +5255,68 @@
                 }
             ],
             "install-path": "../theseer/tokenizer"
+        },
+        {
+            "name": "vova07/yii2-imperavi-widget",
+            "version": "2.0.11",
+            "version_normalized": "2.0.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vova07/yii2-imperavi-widget.git",
+                "reference": "c4fe4a9f64a4c53d9686c80b8744e2c1366184e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vova07/yii2-imperavi-widget/zipball/c4fe4a9f64a4c53d9686c80b8744e2c1366184e5",
+                "reference": "c4fe4a9f64a4c53d9686c80b8744e2c1366184e5",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "time": "2019-03-26T11:39:06+00:00",
+            "type": "yii2-extension",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "vova07\\imperavi\\": "src",
+                    "vova07\\imperavi\\tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Crudu Vasile",
+                    "email": "bazillio07@yandex.ru",
+                    "homepage": "https://github.com/vova07",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The imperavi redactor widget for Yii 2 framework.",
+            "homepage": "https://github.com/vova07/yii2-imperavi-widget",
+            "keywords": [
+                "Redactor",
+                "extension",
+                "imperavi",
+                "widget",
+                "wysiwyg",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/vova07/yii2-imperavi-widget/issues?state=open",
+                "source": "https://github.com/vova07/yii2-imperavi-widget"
+            },
+            "install-path": "../vova07/yii2-imperavi-widget"
         },
         {
             "name": "webmozart/assert",

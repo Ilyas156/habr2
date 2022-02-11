@@ -10,6 +10,7 @@ use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -61,21 +62,30 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+
 </header>
 
 <main role="main" class="flex-shrink-0">
+
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/site/index">Моя лента</a>
+                </li>
+            </ul>
+            <form class="form-inline" action="<?= Url::to(['/site/search']) ?>" method="get">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+        <br>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
 
-</footer>
 
 <?php $this->endBody() ?>
 </body>

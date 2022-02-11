@@ -4,12 +4,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\grid\DataColumn;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\article\ArticlesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $search app\models\article\CategorySearch */
 
 
 $this->title = 'Articles';
@@ -31,14 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'title',
             'description',
-            [
-                    'attribute' => 'category_id',
-                    'label' => 'Category',
-                    'value' => function($data)
-                    {
-                        return $data->category->category_name;
-                    },
-            ],
             [
                 'attribute' => 'user_id',
                 'label' => 'Author',

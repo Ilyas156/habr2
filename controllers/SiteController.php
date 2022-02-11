@@ -2,6 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\article\ArticleCategories;
+use app\models\article\ArticleLikes;
+use app\models\article\Articles;
+use app\models\article\ArticlesSearch;
+use app\models\article\ArticleViews;
+use app\models\category\Category;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,9 +67,41 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex() // show main page
     {
-        return $this->render('index');
+        $categories = Category::getAll();
+        $articles = Articles::getAll();
+
+        return $this->render('index', [
+            'categories' => $categories,
+            'articles' => $articles
+        ]);
+    }
+
+    public function actionArticle($id) // show article page
+    {
+
+        $categories = Category::getAll();
+        $article = Articles::getArticle($id); // get the select article
+        $views = new ArticleViews();
+        $views->setViews($id); // add views +1
+
+        return $this->render('article', [
+            'categories' => $categories,
+            'article' => $article
+        ]);
+    }
+
+    public function actionCategory($id) // Show articles belonging to the selected category
+    {
+        $articles = new ArticleCategories();
+        $articles = $articles->getArticlesByCategory($id); //get articles of the selected category
+        $categories = Category::getAll();
+
+        return $this->render('category', [
+            'categories' => $categories,
+            'articles' => $articles
+        ]);
     }
 
     /**
@@ -128,7 +166,8 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']))
+        {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
@@ -136,6 +175,14 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
+    }
+
+    public function actionLike($id)
+    {
+        $like = new ArticleLikes();
+        $like->setLikes($id); // add Like
+
+        return true;
     }
 
     /**
@@ -146,6 +193,20 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionSearch() // view results of Search
+    {
+        $articles =  new ArticlesSearch();
+        $category = Category::getAll();
+        $params = Yii::$app->request->get('search');
+
+        $articles = $articles->searchIndex($params); // search articles by input string
+
+        return $this->render('index', [
+            'categories' => $category,
+            'articles' => $articles
+        ]);
     }
 
 }

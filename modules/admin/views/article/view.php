@@ -9,6 +9,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\article\Articles */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $articleCategories app\models\article\ArticleCategories */
 
 
 $this->title = $articles->title;
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'description',
             'content',
-            ['label' => 'Category', 'value' => $articles->category->category_name,]
+            ['label' => 'Category', 'value' => $articleCategories->getArticleCategories($articles->article_id)]
         ],
     ]) ?>
 

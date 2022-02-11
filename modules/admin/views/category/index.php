@@ -6,7 +6,7 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\article\CategorySearch */
+/* @var $searchModel app\models\category\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Category';
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => ActionColumn::className(),
                 'template' => '{update} {delete}',
-                'urlCreator' => function ($action, app\models\article\Category $model) {
+                'urlCreator' => function ($action, app\models\category\Category $model) {
                     return Url::toRoute([$action, 'category_id' => $model->category_id]);
                 }
             ],

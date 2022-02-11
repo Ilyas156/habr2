@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\article\Category */
+/* @var $model app\models\category\Category */
 
 $this->title = 'Create Category';
 $this->params['breadcrumbs'][] = ['label' => 'Category', 'url' => ['index']];

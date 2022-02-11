@@ -1,0 +1,27 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.right {
+    position: absolute;
+    right: 210px;
+    width: 300px;
+    padding: 40px 10px 10px 5px;
+}
+
+.like {
+    display: inline;
+    position: absolute;
+    cursor: pointer;
+    padding-left: 28px;
+    background: url("/images/like.svg") no-repeat;
+    right: 10px;
+}
+
+.like.active {
+    display: inline;
+    cursor: pointer;
+    padding-left: 28px;
+    background: url("/images/like_love.ico") no-repeat;
+    background-size: 24px 24px;
+}

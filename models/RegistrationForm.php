@@ -52,7 +52,7 @@ class RegistrationForm extends Model
         ];
     }
 
-    public function registration()
+    public function registration() // register a new user and give him role
     {
         if($this->validate())
         {
@@ -62,7 +62,7 @@ class RegistrationForm extends Model
             $user->setPassword($this->password);
             $user->create();
             $auth = Yii::$app->authManager;
-            $userRole = $auth->getRole('admin');
+            $userRole = $auth->getRole('user');
             $auth->assign($userRole, $user->getId());
 
             return $user;
