@@ -17,14 +17,6 @@ class m220211_130124_article_categories extends Migration
            'category_id' =>  $this->integer()->notNull(),
             'PRIMARY KEY (article_id, category_id)'
         ]);
-        $this->createIndex('FK_article_categories_article_id', 'article_categories', 'article_id');
-        $this->createIndex('FK_article_categories_category_id', 'article_categories', 'category_id');
-        $this->addForeignKey('FK_article_categories_article_id', 'article_categories', 'article_id',
-        'articles', 'article_id'
-        );
-        $this->addForeignKey('FK_article_categories_category_id', 'article_categories', 'category_id',
-            'categories', 'category_id'
-        );
     }
 
     /**
