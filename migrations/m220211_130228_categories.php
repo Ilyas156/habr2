@@ -14,7 +14,7 @@ class m220211_130228_categories extends Migration
     {
         $this->createTable('categories', [
             'category_id' => $this->primaryKey(),
-            'category_name' => $this->char(255)->notNull()->unique()
+            'category_name' => $this->string(255)->notNull()->unique()
         ]);
     }
 

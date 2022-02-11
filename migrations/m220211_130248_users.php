@@ -14,9 +14,9 @@ class m220211_130248_users extends Migration
     {
         $this->createTable('users', [
             'user_id' => $this->primaryKey(),
-            'username' => $this->char(64)->unique()->notNull(),
-            'email' => $this->char(255)->unique()->notNull(),
-            'password' => $this->char(150)->notNull()
+            'username' => $this->string(64)->unique()->notNull(),
+            'email' => $this->string(255)->unique()->notNull(),
+            'password' => $this->string(150)->notNull()
         ]);
     }
 

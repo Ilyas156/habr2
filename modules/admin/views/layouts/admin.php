@@ -39,8 +39,8 @@ AppAsset::register($this);
             'options' => ['class' => 'navbar-nav'],
             'items' => [
                 ['label' => 'Home', 'url' => ['/admin/default/index']],
-                ['label' => 'Article', 'url' => ['/admin/article/index']],
                 ['label' => 'Category', 'url' => ['/admin/category/index']],
+                ['label' => 'Article', 'url' => ['/admin/article/index']],
             ],
 
         ]);

@@ -15,10 +15,10 @@ class m220211_130048_articles extends Migration
         $this->createTable('articles', [
             'article_id' => $this->primaryKey(),
             'title' => $this->string(50)->notNull(),
-            'description' => $this->char(800)->notNull(),
+            'description' => $this->string(800)->notNull(),
             'content' => $this->text()->notNull(),
             'user_id' => $this->integer(),
-            'image' => $this->char(100)
+            'image' => $this->string(100)
         ]);
     }
 
