@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m220211_130134_article_likes
+ * Class m220211_130134_article_like
  */
-class m220211_130134_article_likes extends Migration
+class m220211_130134_article_like extends Migration
 {
     /**
      * {@inheritdoc}
@@ -19,15 +19,15 @@ class m220211_130134_article_likes extends Migration
            'UNIQUE (article_id, user_id)'
         ]);
         
-        $this->createIndex('FK_article_id', 'article_like', 'article_id');
+        $this->createIndex('FK_like_article_id', 'article_like', 'article_id');
         $this->addForeignKey(
-            'FK_article_id',  'article_like', 'article_id', 
+            'FK_like_article_id',  'article_like', 'article_id', 
             'article', 'article_id', 'SET NULL', 'CASCADE'
         );
 
-        $this->createIndex('FK_user_id', 'article_like', 'user_id');
+        $this->createIndex('FK_like_user_id', 'article_like', 'user_id');
         $this->addForeignKey(
-            'FK_user_id',  'article_like', 'user_id', 
+            'FK_like_user_id',  'article_like', 'user_id', 
             'user', 'user_id', 'SET NULL', 'CASCADE'
         );
     }

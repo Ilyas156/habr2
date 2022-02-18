@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m220211_130145_article_views
+ * Class m220211_130145_article_view
  */
-class m220211_130145_article_views extends Migration
+class m220211_130145_article_view extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,15 +18,15 @@ class m220211_130145_article_views extends Migration
             'user_id' => $this->integer()->notNull(),
             'UNIQUE (article_id, user_id)'
         ]);
-        $this->createIndex('FK_article_id', 'article_view', 'article_id');
+        $this->createIndex('FK_view_article_id', 'article_view', 'article_id');
         $this->addForeignKey(
-            'FK_article_id',  'article_view', 'article_id', 
+            'FK_view_article_id',  'article_view', 'article_id', 
             'article', 'article_id', 'SET NULL', 'CASCADE'
         );
 
-        $this->createIndex('FK_user_id', 'article_view', 'user_id');
+        $this->createIndex('FK_view_user_id', 'article_view', 'user_id');
         $this->addForeignKey(
-            'FK_user_id',  'article_view', 'user_id', 
+            'FK_view_user_id',  'article_view', 'user_id', 
             'user', 'user_id', 'SET NULL', 'CASCADE'
         );
     }
