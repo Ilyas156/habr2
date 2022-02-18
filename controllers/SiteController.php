@@ -2,13 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\article\ArticleCategories;
-use app\models\article\ArticleLikes;
-use app\models\article\Articles;
-use app\models\article\ArticlesSearch;
+use app\models\article\ArticleLike;
+use app\models\article\Article;
+use app\models\article\ArticleSearch;
 use app\models\article\ArticleViews;
 use app\models\category\Category;
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -70,11 +71,16 @@ class SiteController extends Controller
     public function actionIndex() // show main page
     {
         $categories = Category::getAll();
-        $articles = Articles::getAll();
+        $query = Article::find()->joinWith('author', 'categories');
+        $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2]);
+        $articles = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
 
         return $this->render('index', [
             'categories' => $categories,
-            'articles' => $articles
+            'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
 
@@ -82,7 +88,7 @@ class SiteController extends Controller
     {
 
         $categories = Category::getAll();
-        $article = Articles::getArticle($id); // get the select article
+        $article = Article::getArticle($id); // get the select article
         $views = new ArticleViews();
         $views->setViews($id); // add views +1
 
@@ -94,9 +100,10 @@ class SiteController extends Controller
 
     public function actionCategory($id) // Show articles belonging to the selected category
     {
-        $articles = new ArticleCategories();
-        $articles = $articles->getArticlesByCategory($id); //get articles of the selected category
+        $category = new Category();
         $categories = Category::getAll();
+        $articles = $category->getCategory($id)->articles;
+
 
         return $this->render('category', [
             'categories' => $categories,
@@ -179,7 +186,7 @@ class SiteController extends Controller
 
     public function actionLike($id)
     {
-        $like = new ArticleLikes();
+        $like = new ArticleLike();
         $like->setLikes($id); // add Like
 
         return true;
@@ -197,15 +204,15 @@ class SiteController extends Controller
 
     public function actionSearch() // view results of Search
     {
-        $articles =  new ArticlesSearch();
+        $articles =  new ArticleSearch();
         $category = Category::getAll();
-        $params = Yii::$app->request->get('search');
 
-        $articles = $articles->searchIndex($params); // search articles by input string
+        $articles = $articles->searchIndex(Yii::$app->request->get('search')); // search articles by input string
 
         return $this->render('index', [
             'categories' => $category,
-            'articles' => $articles
+            'articles' => $articles[0],
+            'pagination' => $articles['pagination']
         ]);
     }
 

@@ -2,8 +2,7 @@
 
 namespace app\models\category;
 
-use app\models\article\ArticleCategories;
-use app\models\article\Articles;
+use app\models\article\Article;
 use yii\db\ActiveRecord;
 use Yii;
 
@@ -12,7 +11,7 @@ class Category extends ActiveRecord
 
     public static function tableName()
     {
-        return 'categories';
+        return 'category';
     }
 
     public function rules()
@@ -27,7 +26,13 @@ class Category extends ActiveRecord
     {
         return Category::find()->all();
     }
-    // return a specific category
+
+    public function getArticles()
+    {
+        return $this->hasMany(Article::className(), ['article_id' => 'article_id'] )
+            ->viaTable('article_category', ['category_id' => 'category_id']);
+    }
+
     public function getCategory($category_id)
     {
         return Category::findOne(['category_id' => $category_id]);
@@ -36,6 +41,12 @@ class Category extends ActiveRecord
     public function deleteCategory($category_id)
     {
         return $this->getCategory($category_id)->delete();
+    }
+
+    public function beforeDelete()
+    {
+        $this->unlinkAll('articles', $delete = true);
+        return true;
     }
 
 }

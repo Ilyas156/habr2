@@ -7,8 +7,12 @@ use Yii;
 use yii\db\ActiveRecord;
 
 
-class ArticleLikes extends ActiveRecord
+class ArticleLike extends ActiveRecord
 {
+    public static function tableName()
+    {
+        return 'article_like';
+    }
     public function rules()
     {
         return [
@@ -24,19 +28,13 @@ class ArticleLikes extends ActiveRecord
             $this->article_id = $article_id;
             $this->save();
         } else { // otherwise, remove Like
-            ArticleLikes::findOne(['user_id' => Yii::$app->user->id, 'article_id' => $article_id])->delete();
+            ArticleLike::findOne(['user_id' => Yii::$app->user->id, 'article_id' => $article_id])->delete();
         }
 
     }
-    // returns the number of Likes for an article
-    public function countLikes($article_id)
-    {
-        $likes = ArticleLikes::find()->where(['article_id' => $article_id]);
-        return $likes->count();
-    }
     // checks if the user liked the article
-    public static function checkLike($article_id)
+    public static function checkLike($article_id) : int
     {
-        return (boolean) ArticleLikes::findOne(['user_id' => Yii::$app->user->id, 'article_id' => $article_id]);
+        return (boolean) ArticleLike::findOne(['user_id' => Yii::$app->user->id, 'article_id' => $article_id]);
     }
 }

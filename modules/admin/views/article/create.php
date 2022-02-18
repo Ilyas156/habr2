@@ -3,9 +3,8 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\article\Articles */
+/* @var $model app\models\article\Article */
 /* @var $categories app\models\category\Category */
-/* @var $articleCategories app\models\article\ArticleCategories */
 /* @var $uploadImage app\models\ImageUpload */
 
 $this->title = 'Create Article';
@@ -19,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form', [
         'model' => $model,
         'categories' => $categories,
-        'articleCategories' => $articleCategories,
         'uploadImage' => $uploadImage
     ]) ?>
 

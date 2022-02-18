@@ -9,6 +9,11 @@ use yii\db\ActiveRecord;
 
 class ArticleViews extends ActiveRecord
 {
+    public static function tableName()
+    {
+        return 'article_view';
+    }
+
     public function rules()
     {
         return [
@@ -27,12 +32,7 @@ class ArticleViews extends ActiveRecord
             $this->save();
         }
     }
-    // returns the number of views for an article
-    public function countViews($article_id)
-    {
-        $views = ArticleViews::find()->where(['article_id' => $article_id]);
-        return $views->count();
-    }
+
     // checks if the user viewed the article
     private function checkViews($article_id)
     {

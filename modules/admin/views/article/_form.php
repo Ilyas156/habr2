@@ -8,16 +8,18 @@ use yii\helpers\Url;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\article\Articles */
+/* @var $model app\models\article\Article */
 /* @var $articleCategories app\models\article\ArticleCategories */
 /* @var $uploadImage app\models\ImageUpload */
 /* @var $form yii\widgets\ActiveForm */
+
 
 ?>
 
 <div>
 
     <?php $form = ActiveForm::begin(); ?>
+
     <?= $form->field($model, 'title')->textInput() ?>
 
     <?= $form->field($uploadImage, 'image')->label('Главное изображение')->fileInput() ?>
@@ -37,10 +39,15 @@ use yii\helpers\Url;
             ]])
         ?>
 
-    <?= $form->field($articleCategories, 'category_id')->label('Category')
+    <?= $form->field($model, 'article_categories')->label('Category')
         ->widget(Select2::classname(), [
             'data' => $categories,
             'options' => ['placeholder' => 'Выберите категорию', 'multiple' => 'true'],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'tags' => true,
+                'maximumInputLength' => 10
+            ],
         ]) ?>
 
     <div class="form-group">

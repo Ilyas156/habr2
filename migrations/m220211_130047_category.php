@@ -12,7 +12,7 @@ class m220211_130228_categories extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('categories', [
+        $this->createTable('category', [
             'category_id' => $this->primaryKey(),
             'category_name' => $this->string(255)->notNull()->unique()
         ]);
@@ -23,7 +23,7 @@ class m220211_130228_categories extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('categories');
+        $this->dropTable('category');
 
         return false;
     }

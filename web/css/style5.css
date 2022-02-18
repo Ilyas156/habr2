@@ -6,8 +6,9 @@ body {
     position: absolute;
     right: 210px;
     width: 300px;
-    padding: 40px 10px 10px 5px;
+    padding: 40px 15px 10px 5px;
 }
+
 
 .like {
     display: inline;

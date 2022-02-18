@@ -38,8 +38,6 @@ class CategoryController extends Controller
 
     public function actionDelete($category_id) // delete category
     {
-        $articleCategory = new ArticleCategories();
-        $articleCategory->deleteArticleCategory($category_id); // delete this category for the articles
 
         $category = new Category();
         $category->deleteCategory($category_id);

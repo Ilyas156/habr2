@@ -12,7 +12,7 @@ class m220211_130248_users extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('users', [
+        $this->createTable('user', [
             'user_id' => $this->primaryKey(),
             'username' => $this->string(64)->unique()->notNull(),
             'email' => $this->string(255)->unique()->notNull(),
@@ -25,7 +25,7 @@ class m220211_130248_users extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('users');
+        $this->dropTable('user');
 
         return false;
     }

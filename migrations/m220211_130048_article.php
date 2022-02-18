@@ -12,7 +12,7 @@ class m220211_130048_articles extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('articles', [
+        $this->createTable('article', [
             'article_id' => $this->primaryKey(),
             'title' => $this->string(50)->notNull(),
             'description' => $this->string(800)->notNull(),
@@ -20,6 +20,10 @@ class m220211_130048_articles extends Migration
             'user_id' => $this->integer(),
             'image' => $this->string(100)
         ]);
+        $this->createIndex('FK_article_author', 'article', 'user_id');
+        $this->addForeignKey(
+            'FK_article_author', 'article', 'user_id', 'user', 'user_id', 'SET NULL', 'CASCADE'
+        );
     }
 
     /**
@@ -27,7 +31,7 @@ class m220211_130048_articles extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('articles');
+        $this->dropTable('article');
 
         return false;
     }
