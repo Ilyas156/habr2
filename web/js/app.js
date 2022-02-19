@@ -1,7 +1,5 @@
 
 const likes = Array.from(document.querySelectorAll('.like'));
-let xhr = new XMLHttpRequest();
-
 
 likes.forEach((like, index) => {
     like.addEventListener('click', () => {
@@ -14,10 +12,8 @@ likes.forEach((like, index) => {
 });
 
 function sendServer(id) {
-    xhr.open('GET', `http://habr2.com/site/like?id=${id}`, false);
-    xhr.send();
-    if (xhr.status !== 200) {
-        // обработать ошибку
-        alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-    }
+    
+    fetch(`http://habr2.com/site/like?id=${id}`);
+    
+    return null;
 }
