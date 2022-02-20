@@ -43,10 +43,4 @@ class Category extends ActiveRecord
         return $this->getCategory($category_id)->delete();
     }
 
-    public function beforeDelete()
-    {
-        $this->unlinkAll('articles', $delete = true);
-        return true;
-    }
-
 }
