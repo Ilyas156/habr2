@@ -138,11 +138,4 @@ class Article extends ActiveRecord
         $this->article_categories = $this->categories;
     }
 
-    public function beforeDelete()
-    {
-        $this->unlinkAll('categories', $delete = true);
-        return true;
-    }
-
-
 }

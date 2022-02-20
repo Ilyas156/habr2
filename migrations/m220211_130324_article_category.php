@@ -21,13 +21,13 @@ class m220211_130324_article_category extends Migration
         $this->createIndex('FK_article_id', 'article_category', 'article_id');
         $this->addForeignKey(
             'FK_article_id',  'article_category', 'article_id', 
-            'article', 'article_id', 'SET NULL', 'CASCADE'
+            'article', 'article_id', 'CASCADE', 'CASCADE'
         );
 
         $this->createIndex('FK_category_id', 'article_category', 'category_id');
         $this->addForeignKey(
             'FK_category_id',  'article_category', 'category_id', 
-            'category', 'category_id', 'SET NULL', 'CASCADE'
+            'category', 'category_id', 'CASCADE', 'CASCADE'
         );
     }
 

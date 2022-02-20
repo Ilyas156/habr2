@@ -22,13 +22,13 @@ class m220211_130134_article_like extends Migration
         $this->createIndex('FK_like_article_id', 'article_like', 'article_id');
         $this->addForeignKey(
             'FK_like_article_id',  'article_like', 'article_id', 
-            'article', 'article_id', 'SET NULL', 'CASCADE'
+            'article', 'article_id', 'CASCADE', 'CASCADE'
         );
 
         $this->createIndex('FK_like_user_id', 'article_like', 'user_id');
         $this->addForeignKey(
             'FK_like_user_id',  'article_like', 'user_id', 
-            'user', 'user_id', 'SET NULL', 'CASCADE'
+            'user', 'user_id', 'CASCADE', 'CASCADE'
         );
     }
 

@@ -21,13 +21,13 @@ class m220211_130145_article_view extends Migration
         $this->createIndex('FK_view_article_id', 'article_view', 'article_id');
         $this->addForeignKey(
             'FK_view_article_id',  'article_view', 'article_id', 
-            'article', 'article_id', 'SET NULL', 'CASCADE'
+            'article', 'article_id', 'CASCADE', 'CASCADE'
         );
 
         $this->createIndex('FK_view_user_id', 'article_view', 'user_id');
         $this->addForeignKey(
             'FK_view_user_id',  'article_view', 'user_id', 
-            'user', 'user_id', 'SET NULL', 'CASCADE'
+            'user', 'user_id', 'CASCADE', 'CASCADE'
         );
     }
 
