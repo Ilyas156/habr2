@@ -7,17 +7,15 @@ use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 $this->title = 'Habr2';
-/*foreach ($articles as $article) {
-    var_dump($article);
-}
-die();*/
+$articles = $dataProvider->getModels();
+$pages = $dataProvider->getPagination();
+
 ?>
 
 <div class="container" style="background-color: #fff">
     <ul class="list-unstyled row">
 
         <?php foreach ($articles as $article): ?>
-
             <li class="media col-md-8">
                 <div class="media-body">
                     <a href="<?= Url::to(['/site/article', 'id' => $article->article_id]) ?>" class="nav-link" style="color:#000">
@@ -64,13 +62,17 @@ die();*/
 </div>
 
 <?php echo LinkPager::widget([
-    'pagination' => $pagination,
+    'pagination' => $pages,
     'maxButtonCount' => 5,
     'activePageCssClass' => 'active',
     'linkContainerOptions' => ['class' => 'page-item'],
     'linkOptions' => ['class' => 'page-link'],
     'disabledListItemSubTagOptions' => ['tag' => 'a', 'class' => 'page-link'],
-]); ?>
+]); ?> 
+
+
+
+
 
 
 

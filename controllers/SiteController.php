@@ -72,15 +72,16 @@ class SiteController extends Controller
     {
         $categories = Category::getAll();
         $query = Article::find()->joinWith('author', 'categories');
-        $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2]);
-        $articles = $query->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
+        $dataProvider = new ActiveDataProvider([
+                'query' => $query,
+                'pagination' => [
+                    'pageSize' => 2
+                ]
+            ]);
 
         return $this->render('index', [
             'categories' => $categories,
-            'articles' => $articles,
-            'pagination' => $pagination
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -102,12 +103,17 @@ class SiteController extends Controller
     {
         $category = new Category();
         $categories = Category::getAll();
-        $articles = $category->getCategory($id)->articles;
-
+        $query = $category->getCategory($id)->getArticles();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 1
+            ]
+        ]);
 
         return $this->render('category', [
             'categories' => $categories,
-            'articles' => $articles
+            'dataProvider' => $dataProvider
         ]);
     }
 
@@ -207,12 +213,11 @@ class SiteController extends Controller
         $articles =  new ArticleSearch();
         $category = Category::getAll();
 
-        $articles = $articles->searchIndex(Yii::$app->request->get('search')); // search articles by input string
+        $dataProvider = $articles->searchIndex(Yii::$app->request->get('search')); // search articles by input string
 
         return $this->render('index', [
             'categories' => $category,
-            'articles' => $articles[0],
-            'pagination' => $articles['pagination']
+            'dataProvider' => $dataProvider
         ]);
     }
 

@@ -2,12 +2,13 @@
 
 /* @var $this yii\web\View */
 
-use yii\grid\GridView;
+use yii\widgets\LinkPager;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'Habr2';
-
+$articles = $dataProvider->getModels();
+$pages = $dataProvider->getPagination();
 ?>
 
 <div class="container" style="background-color: #fff">
@@ -60,3 +61,11 @@ $this->title = 'Habr2';
 
 </div>
 
+<?php echo LinkPager::widget([
+    'pagination' => $pages,
+    'maxButtonCount' => 5,
+    'activePageCssClass' => 'active',
+    'linkContainerOptions' => ['class' => 'page-item'],
+    'linkOptions' => ['class' => 'page-link'],
+    'disabledListItemSubTagOptions' => ['tag' => 'a', 'class' => 'page-link'],
+]); ?> 

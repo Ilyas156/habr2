@@ -55,12 +55,12 @@ class ArticleSearch extends Article
             ->andFilterWhere(['ilike' ,'title' , $params])
             ->orFilterWhere(['ilike', 'category_name', $params]);
         
-        $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize' => 2]);
-        $articles = $query->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->all();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => ['pageSize' => 2]
+        ]);
            
-        return [$articles, 'pagination' => $pagination];
+        return $dataProvider;
     }
 
 }
