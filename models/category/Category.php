@@ -43,4 +43,8 @@ class Category extends ActiveRecord
         return $this->getCategory($category_id)->delete();
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e9b702acbdc8450463d18124b0a6fe4062c7cc07
