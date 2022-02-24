@@ -10,7 +10,7 @@ $articles = $dataProvider->getModels();
 $pages = $dataProvider->getPagination();
 $pageCount = $pages->getPageCount();
 $currentPage = $pages->getPage() + 1;
-
+ 
 ?>
 
 <div class="container" style="background-color: #fff">
@@ -70,31 +70,31 @@ $currentPage = $pages->getPage() + 1;
     <li class="page-item prev disabled"><a class="page-link" tabindex="-1" aria-disabled="true">&laquo;</a></li>
     <?php else: ?>    
         <li class="page-item prev"><a class="page-link" 
-        onclick="pagination('category?id=',<?= $currentPage - 1 ?>, <?= $id ?>)">
+        onclick="pagination('search?search=',<?= $currentPage - 1 ?>, '<?= $params?>')">
         &laquo;</a></li>
     <?php endif; ?>
 
     <?php if($currentPage != $pageCount): ?>
     <li class="page-item active">
         <a class="page-link" 
-        onclick="pagination('category?id=',<?= $currentPage ?>, <?= $id ?>)">
+        onclick="pagination('search?search=',<?= $currentPage ?>, '<?= $params?>')">
             <?= $currentPage ?></a></li>
     <li class="page-item"><a class="page-link" 
-    onclick="pagination('category?id=',<?= $currentPage + 1 ?>, <?= $id ?>)"><?= $currentPage + 1 ?></a></li>
+    onclick="pagination('search?search=',<?= $currentPage + 1 ?>, '<?= $params?>')"><?= $currentPage + 1 ?></a></li>
     
     <?php else: ?>
         <li class="page-item">
         <a class="page-link" 
-        onclick="pagination('category?id=',<?= $currentPage-1 ?>, <?= $id ?>)">
+        onclick="pagination('search?search=',<?= $currentPage-1 ?>, '<?= $params?>')">
             <?= $currentPage-1 ?></a></li>
     <li class="page-item active"><a class="page-link"
-     onclick="pagination('category?id=',<?= $currentPage ?>, <?= $id ?>)"><?= $currentPage ?></a></li>
+     onclick="pagination('search?search=',<?= $currentPage ?>, '<?= $params?>')"><?= $currentPage ?></a></li>
     <?php endif; ?>
 
     <?php if($currentPage != $pageCount): ?>
     <li class="page-item next">
         <a class="page-link" 
-        onclick="pagination( 'category?id=',<?= $currentPage + 1 ?>, <?= $id ?> )">&raquo;</a></li>
+        onclick="pagination( 'search?search=',<?= $currentPage + 1 ?>, '<?= $params?>' )">&raquo;</a></li>
     <?php else: ?>
         <li class="page-item next disabled">
         <a class="page-link">&raquo;</a></li>

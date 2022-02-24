@@ -4,11 +4,13 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\LinkPager;
 
 $this->title = 'Habr2';
 $articles = $dataProvider->getModels();
 $pages = $dataProvider->getPagination();
+$pageCount = $pages->getPageCount();
+$currentPage = $pages->getPage() + 1;
+$url = 'index?';
 
 ?>
 
@@ -31,9 +33,9 @@ $pages = $dataProvider->getPagination();
                     <span>Категории: <?= $article->categoriesName?></span>
 
                     <?php if($article->checkLike): ?>
-                    <span class="like active" id="<?= $article->article_id ?>">
+                        <span class="like active" id="<?= $article->article_id ?>" onclick="setLike(<?= $article->article_id ?>);">
                     <?php else: ?>
-                        <span class="like" id="<?= $article->article_id ?>">
+                        <span class="like" id="<?= $article->article_id ?>" onclick="setLike(<?= $article->article_id ?>);">
                     <?php endif; ?>
 
                     <i class="counter">
@@ -49,26 +51,57 @@ $pages = $dataProvider->getPagination();
             <h3 class="widget-title text-center">Категории</h3>
 
             <?php foreach($categories as $category):?>
-                <a href="<?= Url::to(['/site/category', 'id' => $category->category_id]) ?>"
-                   class="list-group-item list-group-item-action" aria-current="true"
+                <option onclick="category(<?= $category->category_id ?>);"
+                   class="category list-group-item list-group-item-action" aria-current="true"
                 >
                     <?= Html::encode("{$category->category_name}") ?>
 
-                </a>
+                </option>
             <?php endforeach;?>
         </aside>
     </ul>
-
 </div>
 
-<?php echo LinkPager::widget([
-    'pagination' => $pages,
-    'maxButtonCount' => 5,
-    'activePageCssClass' => 'active',
-    'linkContainerOptions' => ['class' => 'page-item'],
-    'linkOptions' => ['class' => 'page-link'],
-    'disabledListItemSubTagOptions' => ['tag' => 'a', 'class' => 'page-link'],
-]); ?> 
+<?php if($pageCount > 1): ?>
+<ul class="pagination">
+    <?php if($currentPage === 1): ?>
+    <li class="page-item prev disabled"><a class="page-link" tabindex="-1" aria-disabled="true">&laquo;</a></li>
+    <?php else: ?>    
+        <li class="page-item prev"><a class="page-link" 
+        onclick="pagination('index?' , <?= $currentPage - 1 ?>)"
+        >
+        &laquo;</a></li>
+    <?php endif; ?>
+
+    <?php if($currentPage != $pageCount): ?>
+    <li class="page-item active">
+        <a class="page-link" 
+        onclick="pagination('index?', <?= $currentPage ?>)">
+            <?= $currentPage ?></a></li>
+    <li class="page-item"><a class="page-link" 
+    onclick="pagination('index?', <?= $currentPage + 1 ?>)"><?= $currentPage + 1 ?></a></li>
+
+    <?php else: ?>
+        <li class="page-item">
+        <a class="page-link" 
+        onclick="pagination('index?', <?= $currentPage-1 ?>)">
+            <?= $currentPage-1 ?></a></li>
+    <li class="page-item active"><a class="page-link" 
+    onclick="pagination('index?', <?= $currentPage ?>)"><?= $currentPage ?></a></li>
+    <?php endif; ?>
+
+    <?php if($currentPage != $pageCount): ?>
+    <li class="page-item next">
+        <a class="page-link" 
+        onclick="pagination('index?', <?= $currentPage + 1 ?>)">&raquo;</a></li>
+    <?php else: ?>
+        <li class="page-item next disabled">
+        <a class="page-link">&raquo;</a></li>
+    <?php endif; ?>    
+</ul>
+<?php endif; ?>
+
+
 
 
 

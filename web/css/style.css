@@ -26,3 +26,11 @@ body {
     background: url("/images/like_love.ico") no-repeat;
     background-size: 24px 24px;
 }
+
+aside > option {
+    cursor: pointer;
+}
+
+li > a {
+    cursor: pointer;
+}

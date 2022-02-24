@@ -113,7 +113,8 @@ class SiteController extends Controller
 
         return $this->render('category', [
             'categories' => $categories,
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'id' => $id
         ]);
     }
 
@@ -212,12 +213,13 @@ class SiteController extends Controller
     {
         $articles =  new ArticleSearch();
         $category = Category::getAll();
+        $params = Yii::$app->request->get('search');
+        $dataProvider = $articles->searchIndex($params); // search articles by input string
 
-        $dataProvider = $articles->searchIndex(Yii::$app->request->get('search')); // search articles by input string
-
-        return $this->render('index', [
+        return $this->render('search', [
             'categories' => $category,
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'params' => $params
         ]);
     }
 

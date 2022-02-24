@@ -65,7 +65,7 @@ AppAsset::register($this);
 
 </header>
 
-<main role="main" class="flex-shrink-0">
+<main role="main" id='content' class="flex-shrink-0">
 
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000">
@@ -74,10 +74,8 @@ AppAsset::register($this);
                     <a class="nav-link" href="/site/index">Моя лента</a>
                 </li>
             </ul>
-            <form class="form-inline" action="<?= Url::to(['/site/search']) ?>" method="get">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                <input class="form-control" style="width: 300px;" onchange="search(value);"
+                 aria-label="Search" id="search" placeholder="search">
         </nav>
         <br>
         <?= Alert::widget() ?>
